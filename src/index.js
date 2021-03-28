@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-allToysCard()
+
 
 function allToysCard(){
   fetch('http://localhost:3000/toys')
@@ -25,9 +25,6 @@ function allToysCard(){
     })
 }
 // toys.forEach(function (toyObject){
-
-
-
 
 function toysCard(toyObject) {
   const divCard = document.createElement('div')
@@ -97,7 +94,8 @@ toyCollection.addEventListener("click", event => {
 
       })
         .then(resp => resp.json())
-        .then(data => console(data))
+        .then(data => console.log(data))
       }
 })
 
+allToysCard()
