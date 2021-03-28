@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
+allToysCard()
 
 function allToysCard(){
   fetch('http://localhost:3000/toys')
@@ -43,8 +43,6 @@ function toysCard(toyObject) {
   const collection = document.querySelector('div#toy-collection')
   collection.append(divCard)
 }
-
-allToysCard()
 
 const form = document.querySelector('form.add-toy-form')
 
@@ -81,7 +79,7 @@ toyCollection.addEventListener("click", event => {
 
       const divCard = event.target.closest('div')
 
-      console.log(divCard)
+      //console.log(divCard)
       if(event.target.matches('button.like-btn')) {
 
         const likesPTag = divCard.querySelector('p')
@@ -98,7 +96,8 @@ toyCollection.addEventListener("click", event => {
           body: JSON.stringify({ likes: currLikes})
 
       })
-           
+        .then(resp => resp.json())
+        .then(data => console(data))
       }
 })
 
